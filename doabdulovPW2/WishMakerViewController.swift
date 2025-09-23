@@ -37,7 +37,6 @@ final class WishMakerViewController: UIViewController {
         static let hexRadius: Double = 20
         static let hexMin: Double = 0
         static let hexMax: Double = 0xFFFFFF
-        
     }
     
     override func viewDidLoad() {
@@ -141,7 +140,7 @@ final class WishMakerViewController: UIViewController {
         for slider in [sliderRed, sliderGreen, sliderBlue] {
             slider.valueChanged = { [weak self] value in
                 self?.view.backgroundColor = UIColor(
-                    displayP3Red: CGFloat(Double(sliderRed.slider.value)),
+                    displayP3Red: CGFloat(sliderRed.slider.value),
                     green: CGFloat(sliderGreen.slider.value),
                     blue: CGFloat(sliderBlue.slider.value),
                     alpha: 1
