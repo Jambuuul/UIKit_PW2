@@ -4,7 +4,7 @@
 Main issue that prevents us from using storyboard is it's actual file format (XML) and problems of solving merge conflicts on multi-people projects with it.
 
 # What does this code do?
-## 1, title.translatesAutoresizingMaskIntoConstraints = false
+## 1. title.translatesAutoresizingMaskIntoConstraints = false
 It prevents constraint conflicts, because if this property’s value is true, the system creates a set of constraints that duplicate the behavior specified by the view’s autoresizing mask. 
 
 ## 2. view.addSubview(title)
