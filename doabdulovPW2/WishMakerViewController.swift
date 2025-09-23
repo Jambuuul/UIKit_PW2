@@ -9,10 +9,9 @@ import UIKit
 
 final class WishMakerViewController: UIViewController {
 
-    var sliderStack: UIStackView!
-    var hexSlider: CustomSlider!
     
     
+    //MARK: Constants
     private enum Const {
         static let sliderMin: Double = 0
         static let sliederMax: Double = 1
@@ -25,6 +24,9 @@ final class WishMakerViewController: UIViewController {
         static let stackBottom: Double = 40
         static let stackLeading: Double = 20
         
+        static let colorChangeTop: Double = 300
+        static let colorChangeLeading: Double = 100
+        
         static let descConstraint: Double = 100
         
         static let titleTop: Double = 30
@@ -32,61 +34,69 @@ final class WishMakerViewController: UIViewController {
         static let descFontSize: Double = 16
         static let titleFontSize: Double = 32
         
+        static let descNumberOfLines: Int = 5
+        
         static let hexBottom: Double = 150
-        static let hexLeading: Double = 20
+        static let hexLeading: Double = 30
         static let hexRadius: Double = 20
         static let hexMin: Double = 0
         static let hexMax: Double = 0xFFFFFF
+        
+        static let sliderHidden: Bool = false
+        static let hexHidden: Bool = true
+        static let randomHidden: Bool = true
+        
+        static let hexLength: Int = 6
+        static let hexPlaceholder: String = "#000000"
+        
+        static let colorSwitchAnimationDuration: TimeInterval = 1
     }
+    
+    let sliderStack = UIStackView()
+    let hexStack = UIStackView()
+    let randomButton = UIButton(type: .system)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
     }
     
+    
     private func configureUI() {
-        view.backgroundColor = .systemGray
-        
+        view.backgroundColor = .black
         
         configureTitle()
         configureDesctiption()
         configureRgbSliders()
-        ConfigureSliderChangingButton()
-        configureHexSlider()
+        configureColorChoiceChangeButton()
+        configureHexStack()
+        configureRandomButton()
     }
     
-    @objc private func changeSlider(sender: UIButton) {
-        sliderStack.isHidden.toggle()
-        hexSlider.isHidden.toggle()
-    }
     
-//    @objc private func showHexSlider(sender: UIButton) {
-//        sliderStack.isHidden = false
-//        hexSlider.isHidden = true
-//    }
-    
-    
-    private func ConfigureSliderChangingButton() {
+    //MARK: Change button
+    private func configureColorChoiceChangeButton() {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.backgroundColor = .white
-        stack.layer.cornerRadius = 20
+        stack.layer.cornerRadius = Const.stackRadius
         view.addSubview(stack)
         let button1 = UIButton(type: .system)
         button1.setTitle("Change Slider", for: .normal)
         button1.addTarget(self,
-                           action: #selector(changeSlider),
+                           action: #selector(changeColorChoice),
                            for: .touchUpInside)
         
         stack.addArrangedSubview(button1)
         
         
-        stack.pinTop(to: view, 300)
+        stack.pinTop(to: view, Const.colorChangeTop)
         stack.pinCenterX(to: view.centerXAnchor)
-        stack.pinLeft(to: view, 100)
+        stack.pinLeft(to: view, Const.colorChangeLeading)
         
     }
     
+    //MARK: Title
     private func configureTitle() {
         let title = UILabel()
         title.text = "Wishmaker"
@@ -101,13 +111,14 @@ final class WishMakerViewController: UIViewController {
     }
     
     
+    //MARK: Description
     private func configureDesctiption() {
         let desc = UILabel()
         desc.text = "Hello! This app is here to grant you a wish! Choose wisely, my friend..."
         
         
         desc.font = UIFont.systemFont(ofSize: Const.descFontSize)
-        desc.numberOfLines = 5
+        desc.numberOfLines = Const.descNumberOfLines
         desc.textColor = .white
         view.addSubview(desc)
         desc.pinTop(to: view.safeAreaLayoutGuide.topAnchor, Const.descConstraint)
@@ -116,9 +127,8 @@ final class WishMakerViewController: UIViewController {
         desc.pinRight(to: view.safeAreaLayoutGuide.trailingAnchor, Const.descConstraint)
     }
     
-    
+    //MARK: RGB sliders
     private func configureRgbSliders() {
-        sliderStack = UIStackView()
         sliderStack.axis = .vertical
         view.addSubview(sliderStack)
         sliderStack.layer.cornerRadius = Const.stackRadius
@@ -138,7 +148,7 @@ final class WishMakerViewController: UIViewController {
         
         
         for slider in [sliderRed, sliderGreen, sliderBlue] {
-            slider.valueChanged = { [weak self] value in
+            slider.valueChanged = { [weak self] _ in
                 self?.view.backgroundColor = UIColor(
                     displayP3Red: CGFloat(sliderRed.slider.value),
                     green: CGFloat(sliderGreen.slider.value),
@@ -150,19 +160,93 @@ final class WishMakerViewController: UIViewController {
     }
     
 
-    private func configureHexSlider() {
-        hexSlider = CustomSlider(title: "Hex Slider", min: Const.hexMin, max: Const.hexMax)
-        hexSlider.isHidden = true
-        hexSlider.layer.cornerRadius = Const.hexRadius
+    //MARK: HEX slider
+    private func configureHexStack() {
+        hexStack.axis = .horizontal
+        view.addSubview(hexStack)
+
+        let hexField = UITextField()
+        hexField.placeholder = Const.hexPlaceholder
+        hexField.backgroundColor = .white
+        hexStack.addArrangedSubview(hexField)
         
-        view.addSubview(hexSlider)
-        hexSlider.pinCenterX(to: view.centerXAnchor)
-        hexSlider.pinLeft(to: view.leadingAnchor, Const.hexLeading)
-        hexSlider.pinBottom(to: view.bottomAnchor, Const.hexBottom)
+        hexStack.pinCenterX(to: view.centerXAnchor)
+        hexStack.pinLeft(to: view.leadingAnchor, Const.hexLeading)
+        hexStack.pinBottom(to: view.bottomAnchor, Const.hexBottom)
+        
     
+        let hexButton = UIButton()
+        hexButton.setImage(UIImage(systemName:"arrow.right.circle.fill"), for: .normal)
+        hexStack.addArrangedSubview(hexButton)
         
-        hexSlider.valueChanged = { [weak self] value in
-            self?.view.backgroundColor = UIColor.hexToRgb(from: Int(self?.hexSlider.slider.value ?? 0))
+        hexButton.addTarget(self, action: #selector (sendHexInfo), for: .touchUpInside)
+        hexButton.backgroundColor = .green
+        hexStack.isHidden = Const.hexHidden
+        hexStack.layer.cornerRadius = Const.stackRadius
+    }
+    
+    //MARK: Random button
+    private func configureRandomButton() {
+        randomButton.setTitle("Random!", for: .normal)
+        randomButton.isHidden = Const.randomHidden
+        randomButton.backgroundColor = .white
+        randomButton.layer.cornerRadius = Const.stackRadius
+        view.addSubview(randomButton)
+        
+        randomButton.pinLeft(to: view.leadingAnchor, Const.stackLeading)
+        randomButton.pinCenterX(to: view.centerXAnchor)
+        randomButton.pinBottom(to: view.safeAreaLayoutGuide.bottomAnchor, Const.stackBottom)
+        
+        randomButton.addTarget(self, action: #selector (randomBackgroundColor), for: .touchUpInside)
+    }
+    
+    
+    //MARK: Hex button action
+    @objc
+    private func sendHexInfo() {
+        var value = (hexStack.arrangedSubviews[0] as! UITextField).text ?? Const.hexPlaceholder
+        if value.count != Const.hexLength + 1 {
+            return;
+        }
+        value = String(value.suffix(Const.hexLength))
+        
+        let scanner = Scanner(string: value)
+        var num: Int64 = 0
+        if scanner.scanHexInt64(&num) {
+            
+            changeBackgroundColor(to: UIColor.hexToRgb(from: num))
         }
     }
+    
+    //MARK: change button action
+    @objc private func changeColorChoice(sender: UIButton) {
+        if !sliderStack.isHidden {
+            sliderStack.isHidden = true
+            hexStack.isHidden = false
+            return
+        }
+        if !hexStack.isHidden {
+            hexStack.isHidden = true
+            randomButton.isHidden = false
+            return
+        }
+        randomButton.isHidden = true
+        sliderStack.isHidden = false
+        
+    
+    }
+
+    //MARK: random button action
+    @objc
+    private func randomBackgroundColor() {
+        changeBackgroundColor(to: .random)
+    }
+    
+    //MARK: для чистоты кода
+    private func changeBackgroundColor(to color: UIColor) {
+        UIView.animate(withDuration: Const.colorSwitchAnimationDuration) {
+            self.view.backgroundColor = color
+        }
+    }
+    
 }

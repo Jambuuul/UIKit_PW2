@@ -12,16 +12,16 @@ extension UIColor {
     
     private enum ColorConstants {
         // Max hex number to generate color in
-        static let maxHex: Int = 0xFFFFFF
+        static let maxHex: Int64 = 0xFFFFFF
         
         static let alpha: CGFloat = 1
         
         // Size of color space (default for sRGB = 256)
-        static let colorCount: Int = 256
+        static let colorCount: Int64 = 256
     }
 
     //MARK: Generates random color in hex, converts it to sRGB
-    static func hexToRgb(from num: Int) -> UIColor {
+    static func hexToRgb(from num: Int64) -> UIColor {
         var color = num
         // по умолчанию 256 параметров у каждого цвета
         // будем "выдирать" части из 16-ричного числа для определения цвета
