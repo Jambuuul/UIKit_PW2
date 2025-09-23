@@ -8,8 +8,9 @@
 import UIKit
 
 final class WishMakerViewController: UIViewController {
-    
+
     var sliderStack: UIStackView!
+    var hexSlider: CustomSlider!
     
     
     private enum Const {
@@ -31,6 +32,12 @@ final class WishMakerViewController: UIViewController {
         static let descFontSize: Double = 16
         static let titleFontSize: Double = 32
         
+        static let hexBottom: Double = 150
+        static let hexLeading: Double = 20
+        static let hexRadius: Double = 20
+        static let hexMin: Double = 0
+        static let hexMax: Double = 0xFFFFFF
+        
     }
     
     override func viewDidLoad() {
@@ -44,24 +51,32 @@ final class WishMakerViewController: UIViewController {
         
         configureTitle()
         configureDesctiption()
-        configureSliders()
-        configureButtons()
+        configureRgbSliders()
+        ConfigureSliderChangingButton()
+        configureHexSlider()
     }
     
-    @objc private func hideSlider(sender: UIButton) {
+    @objc private func changeSlider(sender: UIButton) {
         sliderStack.isHidden.toggle()
+        hexSlider.isHidden.toggle()
     }
     
-    private func configureButtons() {
+//    @objc private func showHexSlider(sender: UIButton) {
+//        sliderStack.isHidden = false
+//        hexSlider.isHidden = true
+//    }
+    
+    
+    private func ConfigureSliderChangingButton() {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.backgroundColor = .white
         stack.layer.cornerRadius = 20
         view.addSubview(stack)
         let button1 = UIButton(type: .system)
-        button1.setTitle("Hide/Show sliders", for: .normal)
+        button1.setTitle("Change Slider", for: .normal)
         button1.addTarget(self,
-                           action: #selector(hideSlider),
+                           action: #selector(changeSlider),
                            for: .touchUpInside)
         
         stack.addArrangedSubview(button1)
@@ -86,6 +101,7 @@ final class WishMakerViewController: UIViewController {
         title.pinTop(to: view.safeAreaLayoutGuide.topAnchor, Const.titleTop)
     }
     
+    
     private func configureDesctiption() {
         let desc = UILabel()
         desc.text = "Hello! This app is here to grant you a wish! Choose wisely, my friend..."
@@ -101,7 +117,8 @@ final class WishMakerViewController: UIViewController {
         desc.pinRight(to: view.safeAreaLayoutGuide.trailingAnchor, Const.descConstraint)
     }
     
-    private func configureSliders() {
+    
+    private func configureRgbSliders() {
         sliderStack = UIStackView()
         sliderStack.axis = .vertical
         view.addSubview(sliderStack)
@@ -130,6 +147,23 @@ final class WishMakerViewController: UIViewController {
                     alpha: 1
                 )
             }
+        }
+    }
+    
+
+    private func configureHexSlider() {
+        hexSlider = CustomSlider(title: "Hex Slider", min: Const.hexMin, max: Const.hexMax)
+        hexSlider.isHidden = true
+        hexSlider.layer.cornerRadius = Const.hexRadius
+        
+        view.addSubview(hexSlider)
+        hexSlider.pinCenterX(to: view.centerXAnchor)
+        hexSlider.pinLeft(to: view.leadingAnchor, Const.hexLeading)
+        hexSlider.pinBottom(to: view.bottomAnchor, Const.hexBottom)
+    
+        
+        hexSlider.valueChanged = { [weak self] value in
+            self?.view.backgroundColor = UIColor.hexToRgb(from: Int(self?.hexSlider.slider.value ?? 0))
         }
     }
 }
