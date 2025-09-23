@@ -8,8 +8,6 @@
 import UIKit
 
 final class WishMakerViewController: UIViewController {
-
-    
     
     //MARK: Constants
     private enum Const {
@@ -81,13 +79,13 @@ final class WishMakerViewController: UIViewController {
         stack.backgroundColor = .white
         stack.layer.cornerRadius = Const.stackRadius
         view.addSubview(stack)
-        let button1 = UIButton(type: .system)
-        button1.setTitle("Change Slider", for: .normal)
-        button1.addTarget(self,
+        let button = UIButton(type: .system)
+        button.setTitle("Change Slider", for: .normal)
+        button.addTarget(self,
                            action: #selector(changeColorChoice),
                            for: .touchUpInside)
         
-        stack.addArrangedSubview(button1)
+        stack.addArrangedSubview(button)
         
         
         stack.pinTop(to: view, Const.colorChangeTop)
@@ -233,7 +231,6 @@ final class WishMakerViewController: UIViewController {
         randomButton.isHidden = true
         sliderStack.isHidden = false
         
-    
     }
 
     //MARK: random button action
