@@ -9,14 +9,6 @@ import Foundation
 import UIKit
 
 enum WishMakerModel {
-    enum Start {
-        struct Request {}
-        struct Response {}
-        
-        struct ViewModel {
-            let color: UIColor
-        }
-    }
     
     enum ColorUpdate {
         struct Request {

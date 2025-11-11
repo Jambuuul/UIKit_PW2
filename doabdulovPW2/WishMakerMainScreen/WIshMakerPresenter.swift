@@ -10,16 +10,13 @@ import UIKit
 
 final class WishMakerPresenter : WishMakerPresentationLogic {
     weak var view: WishMakerViewController?
-    func presentStart(_ response: Model.Start.Response) {
-        view?.displayStart(Model.Start.ViewModel(color: UIColor.random))
-    }
     
     func updateColorWithAnimation(_ response: Model.ColorUpdate.Response) {
         view?.changeBackgroundColor(to: response.color)
     }
     
     func updateColorWithoutAnimation(_ response: Model.ColorUpdate.Response) {
-        view?.view.backgroundColor = response.color
+        view?.changeBackgroundColor(to: response.color)
     }
     
 }

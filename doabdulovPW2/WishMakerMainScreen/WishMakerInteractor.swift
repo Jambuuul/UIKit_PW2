@@ -36,10 +36,6 @@ final class WishMakerInteractor : WishMakerBusinessLogic {
         self.presenter = presenter
     }
     
-    func loadStart(_ request: Model.Start.Request) {
-        presenter.presentStart(Model.Start.Response())
-    }
-    
     func getRandomColor() {
         presenter.updateColorWithAnimation(Model.ColorUpdate.Response(color: UIColor.random))
     }

@@ -50,8 +50,8 @@ final class WishMakerViewController: UIViewController {
         static let colorSwitchAnimationDuration: TimeInterval = 1
         
         
-        static let buttonHeight: Double = 20
-        static let buttonTop: Double = 40
+        static let buttonHeight: Double = 40
+        static let buttonTop: Double = 20
         static let buttonSide: Double = 100
     }
     
@@ -107,7 +107,7 @@ final class WishMakerViewController: UIViewController {
         
         colorChoiceChangeButton.layer.cornerRadius = 15
 
-        
+        colorChoiceChangeButton.setHeight(Const.buttonHeight)
         colorChoiceChangeButton.backgroundColor = .green
         colorChoiceChangeButton.pinTop(to: view, Const.colorChangeTop)
         colorChoiceChangeButton.pinCenterX(to: view.centerXAnchor)
@@ -119,7 +119,7 @@ final class WishMakerViewController: UIViewController {
         view.addSubview(addWishButton)
     
         addWishButton.setHeight(Const.buttonHeight)
-        addWishButton.pinTop(to: colorChoiceChangeButton, Const.buttonTop)
+        addWishButton.pinTop(to: colorChoiceChangeButton.bottomAnchor, Const.buttonTop)
         addWishButton.pinHorizontal(to: view, Const.buttonSide)
         
         addWishButton.backgroundColor = .white
@@ -256,11 +256,5 @@ final class WishMakerViewController: UIViewController {
         }
     }
     
-    
-    //MARK: Display logic
-    
-    func displayStart(_ viewModel: Model.Start.ViewModel) {
-        
-    }
     
 }

@@ -11,7 +11,7 @@ final class WrittenWishCell: UITableViewCell {
     static let reuseId: String = "WrittenWishCell"
     
     private enum Const {
-        static let wrapColor: UIColor = .white
+        static let wrapColor: UIColor = .lightGray
         static let wrapRadius: CGFloat = 16
         static let wrapOffsetV: CGFloat = 5
         static let wrapOffsetH: CGFloat = 10
@@ -21,6 +21,14 @@ final class WrittenWishCell: UITableViewCell {
         static let buttonSize: CGFloat = 32
         static let buttonOffsetR: CGFloat = 10
         static let buttonOffsetV: CGFloat = 10
+        
+        static let buttonCornerRadius: CGFloat = 15
+        
+        static let tableColor: UIColor = UIColor(
+            displayP3Red: 0.878,
+            green: 0.878,
+            blue: 0.878,
+            alpha: 1)
     }
     
     private let wishText: UITextView = UITextView()
@@ -58,8 +66,10 @@ final class WrittenWishCell: UITableViewCell {
         let wrap: UIView = UIView()
         contentView.addSubview(wrap)
         
-        wrap.backgroundColor = Const.wrapColor
+        
+        wrap.backgroundColor = Const.tableColor
         wrap.layer.cornerRadius = Const.wrapRadius
+        
         wrap.pinVertical(to: self.contentView, Const.wrapOffsetV)
         wrap.pinHorizontal(to: self.contentView, Const.wrapOffsetH)
         contentView.layer.cornerRadius = Const.wrapRadius
@@ -68,21 +78,28 @@ final class WrittenWishCell: UITableViewCell {
         wrap.addSubview(wishText)
         wishText.pin(to: wrap, Const.wishLabelOffset)
         wishText.pinVertical(to: wrap, Const.buttonOffsetV)
-        wishText.backgroundColor = .white
+        wishText.backgroundColor = .clear
         wishText.isScrollEnabled = false
         wishText.isEditable = false
         wishText.isSelectable = false
         
         // delete button
         wrap.addSubview(deleteButton)
+        deleteButton.backgroundColor = .white
+        deleteButton.layer.cornerRadius = Const.buttonCornerRadius
+        
         deleteButton.setImage(UIImage(systemName: "trash"), for: .normal)
         deleteButton.pinRight(to: wrap, Const.buttonOffsetR)
         deleteButton.pinVertical(to: wrap, Const.buttonOffsetV)
         deleteButton.setHeight(Const.buttonSize)
         deleteButton.setWidth(Const.buttonSize)
         
+        
         // edit button
         wrap.addSubview(editButton)
+        editButton.backgroundColor = .white
+        editButton.layer.cornerRadius = Const.buttonCornerRadius
+        
         editButton.setImage(UIImage(systemName: "pencil"), for: .normal)
         editButton.pinRight(to: deleteButton.leadingAnchor, Const.buttonOffsetR)
         editButton.pinVertical(to: wrap, Const.buttonOffsetV)
@@ -91,6 +108,9 @@ final class WrittenWishCell: UITableViewCell {
         
         // confirmation button
         wrap.addSubview(confirmationButton)
+        confirmationButton.backgroundColor = .white
+        confirmationButton.layer.cornerRadius = Const.buttonCornerRadius
+        
         confirmationButton.isHidden = true
         confirmationButton.setImage(UIImage(systemName: "checkmark"), for: .normal)
         confirmationButton.pinRight(to: wrap, Const.buttonOffsetR)

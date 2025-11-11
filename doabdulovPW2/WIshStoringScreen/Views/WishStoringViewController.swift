@@ -29,22 +29,23 @@ final class WishStoringViewController: UIViewController {
     private var wishArray: [String] = [""]
     
     override func viewDidLoad() {
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
         
         wishArray = defaults.stringArray(forKey: Const.UDSaveKey) ?? []
         configureTable()
-        
+        startColorBreathing()
     }
     
     private let table: UITableView = UITableView(frame: .zero)
     
     private func configureTable() {
         view.addSubview(table)
-        table.backgroundColor = .red
+        table.backgroundColor = .white
         table.dataSource = self
         table.separatorStyle = .none
         table.layer.cornerRadius = Const.tableCornerRadius
-        
+        table.delegate = self
+            
         table.pin(to: view, Const.tableOffset)
         
         table.register(WrittenWishCell.self, forCellReuseIdentifier: WrittenWishCell.reuseId)
@@ -67,6 +68,20 @@ final class WishStoringViewController: UIViewController {
     private func saveChanges() {
         defaults.set(wishArray, forKey: Const.UDSaveKey)
     }
+    
+    var colorTimer: Timer?
+
+    private func startColorBreathing() {
+        colorTimer?.invalidate()
+        colorTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { [weak self] _ in
+            guard let self else { return }
+            UIView.animate(withDuration: 3, delay: 0, options: [.curveEaseInOut, .allowUserInteraction]) {
+                self.view.backgroundColor = .random
+                self.table.backgroundColor = self.view.backgroundColor
+            }
+        }
+    }
+
 }
 
 //MARK: table data source extension
@@ -124,3 +139,23 @@ extension WishStoringViewController: UITableViewDataSource {
         
     }
 }
+
+
+extension WishStoringViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView,
+                   willDisplay cell: UITableViewCell,
+                   forRowAt indexPath: IndexPath) {
+        guard indexPath.section != 1 else { return }
+        cell.transform = CGAffineTransform(translationX: 0, y: -40)
+        cell.alpha = 0
+        UIView.animate(withDuration: 1,
+                       delay: 0,
+                       usingSpringWithDamping: 0.3,
+                       initialSpringVelocity: 0.5,
+                       options: [.curveEaseOut]) {
+            cell.transform = .identity
+            cell.alpha = 1
+        }
+    }
+}
+

@@ -15,20 +15,23 @@ final class AddWishCell: UITableViewCell {
         static let buttonTitle: String = "Add wish"
 
         //MARK: Wrap Offsets
-        static let wrapOffsetV: CGFloat = 20
-        static let wrapOffsetH: CGFloat = 16
+        static let wrapOffsetV: CGFloat = 10
+        static let wrapOffsetH: CGFloat = 5
         
         //MARK: visual
         static let wrapCornerRadius: CGFloat = 8
+        static let buttonCornerRadius: CGFloat = 10
+        static let textViewCornerRadius: CGFloat = 5
+        static let buttonWidth: CGFloat = 100
         
         //MARK: button offsets
-        static let buttonOffsetV: CGFloat = 5
+        static let buttonOffsetV: CGFloat = 10
         static let buttonOffsetH: CGFloat = 0
         
         //MARK: textView offsets
-        static let textViewHeight: CGFloat = 50
+        static let textViewHeight: CGFloat = 30
         static let textViewOffsetV: CGFloat = 10
-        static let textViewOffsetH: CGFloat = 10
+        static let textViewOffsetH: CGFloat = 5
     }
     
     private let textView: UITextView = UITextView()
@@ -50,14 +53,21 @@ final class AddWishCell: UITableViewCell {
         textView.backgroundColor = .white
         textView.isEditable = true
         textView.isUserInteractionEnabled = true
-        textView.backgroundColor = .clear
+        textView.backgroundColor = .lightGray
+        textView.layer.cornerRadius = Const.textViewCornerRadius
+        
+        textView.textAlignment = .center
+        textView.textAlignment = .left
+        textView.refreshControl?.contentVerticalAlignment = .center
         textView.setHeight(Const.textViewHeight)
     }
     
     private func configureAddWishButton() {
         addWishButton.setTitle(Const.buttonTitle, for: .normal)
         
-        addWishButton.backgroundColor = .red
+        addWishButton.backgroundColor = .systemGreen
+        addWishButton.setTitleColor(.white, for: .normal)
+        addWishButton.layer.cornerRadius = Const.buttonCornerRadius
         
         addWishButton.addTarget(
             self,
@@ -87,15 +97,17 @@ final class AddWishCell: UITableViewCell {
         // button constraints
         addWishButton.pinTop(to: wrap, Const.buttonOffsetV)
         addWishButton.pinRight(to: wrap, Const.buttonOffsetH)
+        addWishButton.setWidth(Const.buttonWidth)
         
         // textview consraints
         textView.pinVertical(to: wrap, Const.textViewOffsetV)
         textView.pinLeft(to: wrap, Const.textViewOffsetH)
-        textView.pinRight(to: wrap, Const.textViewOffsetH)
+        textView.pinRight(to: addWishButton.leadingAnchor, Const.textViewOffsetH)
     }
     
     @objc
     private func addWishButtonPressed() {
+        if (textView.text == "") { return }
         addWish?(textView.text ?? "")
         textView.text = ""
     }
