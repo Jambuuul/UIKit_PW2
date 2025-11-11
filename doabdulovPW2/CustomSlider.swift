@@ -54,6 +54,12 @@ final class CustomSlider: UIView {
         slider.pinLeft(to:leadingAnchor, SliderConstraints.sliderLeading)
     }
     
+    public var value: CGFloat {
+        get {
+            return CGFloat(slider.value)
+        }
+    }
+    
     @objc
     private func sliderValueChanged() {
         valueChanged?(Double(slider.value))

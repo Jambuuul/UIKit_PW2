@@ -6,30 +6,55 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3936B09A2EC20D7A0028644D /* WishMakerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3936B0992EC20D7A0028644D /* WishMakerInteractor.swift */; };
+		3936B09C2EC20DB40028644D /* WIshMakerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3936B09B2EC20DB40028644D /* WIshMakerPresenter.swift */; };
+		3936B09E2EC212DC0028644D /* RGBSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3936B09D2EC212DC0028644D /* RGBSlider.swift */; };
+		3936B0A12EC218B30028644D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3936B0A02EC218B30028644D /* CustomTextField.swift */; };
+		3936B0A32EC221CE0028644D /* WishMakerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3936B0A22EC221CE0028644D /* WishMakerAssembly.swift */; };
+		3936B0A62EC345AD0028644D /* WishStoringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3936B0A52EC345AD0028644D /* WishStoringViewController.swift */; };
+		3936B0A82EC348E60028644D /* WrittenWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3936B0A72EC348E60028644D /* WrittenWishCell.swift */; };
+		3936B0AA2EC35C080028644D /* AddWishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3936B0A92EC35C080028644D /* AddWishCell.swift */; };
+		3936B0AE2EC362D00028644D /* WishStoringProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3936B0AD2EC362D00028644D /* WishStoringProtocols.swift */; };
+		3936B0B02EC363010028644D /* WishStoringModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3936B0AF2EC363010028644D /* WishStoringModel.swift */; };
+		3955C4522EC11F0E00A214A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3955C4492EC11F0E00A214A7 /* Assets.xcassets */; };
+		3955C4542EC11F0E00A214A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3955C44D2EC11F0E00A214A7 /* LaunchScreen.storyboard */; };
+		3955C4552EC11F0E00A214A7 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3955C4442EC11F0E00A214A7 /* UIColor+hex.swift */; };
+		3955C4562EC11F0E00A214A7 /* UIColor+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3955C4452EC11F0E00A214A7 /* UIColor+random.swift */; };
+		3955C4572EC11F0E00A214A7 /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3955C4462EC11F0E00A214A7 /* UIView+Pin.swift */; };
+		3955C4582EC11F0E00A214A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3955C4482EC11F0E00A214A7 /* AppDelegate.swift */; };
+		3955C4592EC11F0E00A214A7 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3955C44A2EC11F0E00A214A7 /* CustomSlider.swift */; };
+		3955C45A2EC11F0E00A214A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3955C44E2EC11F0E00A214A7 /* SceneDelegate.swift */; };
+		3955C45B2EC11F0E00A214A7 /* WishMakerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3955C44F2EC11F0E00A214A7 /* WishMakerProtocols.swift */; };
+		3955C45C2EC11F0E00A214A7 /* WishMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3955C4502EC11F0E00A214A7 /* WishMakerViewController.swift */; };
+		3955C45E2EC11F2400A214A7 /* WishMakerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3955C45D2EC11F2400A214A7 /* WishMakerModel.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		3936B0992EC20D7A0028644D /* WishMakerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishMakerInteractor.swift; sourceTree = "<group>"; };
+		3936B09B2EC20DB40028644D /* WIshMakerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WIshMakerPresenter.swift; sourceTree = "<group>"; };
+		3936B09D2EC212DC0028644D /* RGBSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBSlider.swift; sourceTree = "<group>"; };
+		3936B0A02EC218B30028644D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		3936B0A22EC221CE0028644D /* WishMakerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishMakerAssembly.swift; sourceTree = "<group>"; };
+		3936B0A52EC345AD0028644D /* WishStoringViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStoringViewController.swift; sourceTree = "<group>"; };
+		3936B0A72EC348E60028644D /* WrittenWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrittenWishCell.swift; sourceTree = "<group>"; };
+		3936B0A92EC35C080028644D /* AddWishCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWishCell.swift; sourceTree = "<group>"; };
+		3936B0AD2EC362D00028644D /* WishStoringProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStoringProtocols.swift; sourceTree = "<group>"; };
+		3936B0AF2EC363010028644D /* WishStoringModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishStoringModel.swift; sourceTree = "<group>"; };
+		3955C4442EC11F0E00A214A7 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
+		3955C4452EC11F0E00A214A7 /* UIColor+random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+random.swift"; sourceTree = "<group>"; };
+		3955C4462EC11F0E00A214A7 /* UIView+Pin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
+		3955C4482EC11F0E00A214A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3955C4492EC11F0E00A214A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3955C44A2EC11F0E00A214A7 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		3955C44B2EC11F0E00A214A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3955C44C2EC11F0E00A214A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3955C44E2EC11F0E00A214A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3955C44F2EC11F0E00A214A7 /* WishMakerProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishMakerProtocols.swift; sourceTree = "<group>"; };
+		3955C4502EC11F0E00A214A7 /* WishMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishMakerViewController.swift; sourceTree = "<group>"; };
+		3955C45D2EC11F2400A214A7 /* WishMakerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishMakerModel.swift; sourceTree = "<group>"; };
 		3968CC9B2E8042690047A7C1 /* doabdulovPW2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = doabdulovPW2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3968CCAD2E80426B0047A7C1 /* Exceptions for "doabdulovPW2" folder in "doabdulovPW2" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 3968CC9A2E8042690047A7C1 /* doabdulovPW2 */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		3968CC9D2E8042690047A7C1 /* doabdulovPW2 */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				3968CCAD2E80426B0047A7C1 /* Exceptions for "doabdulovPW2" folder in "doabdulovPW2" target */,
-			);
-			path = doabdulovPW2;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3968CC982E8042690047A7C1 /* Frameworks */ = {
@@ -42,10 +67,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3936B09F2EC212F20028644D /* WishMakerMainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3936B0AB2EC3627F0028644D /* Views */,
+				3955C44F2EC11F0E00A214A7 /* WishMakerProtocols.swift */,
+				3955C45D2EC11F2400A214A7 /* WishMakerModel.swift */,
+				3936B0992EC20D7A0028644D /* WishMakerInteractor.swift */,
+				3936B09B2EC20DB40028644D /* WIshMakerPresenter.swift */,
+				3936B0A22EC221CE0028644D /* WishMakerAssembly.swift */,
+			);
+			path = WishMakerMainScreen;
+			sourceTree = "<group>";
+		};
+		3936B0A42EC28DD40028644D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3936B0A52EC345AD0028644D /* WishStoringViewController.swift */,
+				3936B0A92EC35C080028644D /* AddWishCell.swift */,
+				3936B0A72EC348E60028644D /* WrittenWishCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3936B0AB2EC3627F0028644D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3955C4502EC11F0E00A214A7 /* WishMakerViewController.swift */,
+				3936B0A02EC218B30028644D /* CustomTextField.swift */,
+				3936B09D2EC212DC0028644D /* RGBSlider.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3936B0AC2EC3628E0028644D /* WIshStoringScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3936B0A42EC28DD40028644D /* Views */,
+				3936B0AD2EC362D00028644D /* WishStoringProtocols.swift */,
+				3936B0AF2EC363010028644D /* WishStoringModel.swift */,
+			);
+			path = WIshStoringScreen;
+			sourceTree = "<group>";
+		};
+		3955C4472EC11F0E00A214A7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3955C4442EC11F0E00A214A7 /* UIColor+hex.swift */,
+				3955C4452EC11F0E00A214A7 /* UIColor+random.swift */,
+				3955C4462EC11F0E00A214A7 /* UIView+Pin.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3955C4512EC11F0E00A214A7 /* doabdulovPW2 */ = {
+			isa = PBXGroup;
+			children = (
+				3955C4472EC11F0E00A214A7 /* Extensions */,
+				3936B0AC2EC3628E0028644D /* WIshStoringScreen */,
+				3955C4482EC11F0E00A214A7 /* AppDelegate.swift */,
+				3955C4492EC11F0E00A214A7 /* Assets.xcassets */,
+				3936B09F2EC212F20028644D /* WishMakerMainScreen */,
+				3955C44A2EC11F0E00A214A7 /* CustomSlider.swift */,
+				3955C44B2EC11F0E00A214A7 /* Info.plist */,
+				3955C44D2EC11F0E00A214A7 /* LaunchScreen.storyboard */,
+				3955C44E2EC11F0E00A214A7 /* SceneDelegate.swift */,
+			);
+			path = doabdulovPW2;
+			sourceTree = "<group>";
+		};
 		3968CC922E8042690047A7C1 = {
 			isa = PBXGroup;
 			children = (
-				3968CC9D2E8042690047A7C1 /* doabdulovPW2 */,
+				3955C4512EC11F0E00A214A7 /* doabdulovPW2 */,
 				3968CC9C2E8042690047A7C1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,9 +166,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				3968CC9D2E8042690047A7C1 /* doabdulovPW2 */,
 			);
 			name = doabdulovPW2;
 			packageProductDependencies = (
@@ -122,6 +213,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3955C4522EC11F0E00A214A7 /* Assets.xcassets in Resources */,
+				3955C4542EC11F0E00A214A7 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,10 +225,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3936B0A12EC218B30028644D /* CustomTextField.swift in Sources */,
+				3936B0AE2EC362D00028644D /* WishStoringProtocols.swift in Sources */,
+				3936B0A32EC221CE0028644D /* WishMakerAssembly.swift in Sources */,
+				3936B09E2EC212DC0028644D /* RGBSlider.swift in Sources */,
+				3955C45E2EC11F2400A214A7 /* WishMakerModel.swift in Sources */,
+				3955C4552EC11F0E00A214A7 /* UIColor+hex.swift in Sources */,
+				3936B09C2EC20DB40028644D /* WIshMakerPresenter.swift in Sources */,
+				3955C4562EC11F0E00A214A7 /* UIColor+random.swift in Sources */,
+				3955C4572EC11F0E00A214A7 /* UIView+Pin.swift in Sources */,
+				3936B0A82EC348E60028644D /* WrittenWishCell.swift in Sources */,
+				3955C4582EC11F0E00A214A7 /* AppDelegate.swift in Sources */,
+				3936B0A62EC345AD0028644D /* WishStoringViewController.swift in Sources */,
+				3955C4592EC11F0E00A214A7 /* CustomSlider.swift in Sources */,
+				3936B0B02EC363010028644D /* WishStoringModel.swift in Sources */,
+				3955C45A2EC11F0E00A214A7 /* SceneDelegate.swift in Sources */,
+				3955C45B2EC11F0E00A214A7 /* WishMakerProtocols.swift in Sources */,
+				3936B0AA2EC35C080028644D /* AddWishCell.swift in Sources */,
+				3936B09A2EC20D7A0028644D /* WishMakerInteractor.swift in Sources */,
+				3955C45C2EC11F0E00A214A7 /* WishMakerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3955C44D2EC11F0E00A214A7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3955C44C2EC11F0E00A214A7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3968CCAF2E80426B0047A7C1 /* Debug */ = {
